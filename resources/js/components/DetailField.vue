@@ -1,7 +1,7 @@
 <template>
   <PanelItem :index="index" :field="field">
     <template #value>
-      <Excerpt :content="field.value" :plain-text="true" :should-show="field.shouldShow" class="o1-tooltip-detail" />
+      <Excerpt :content="field.content" :plain-text="true" :should-show="field.shouldShow" class="o1-tooltip-detail" />
     </template>
   </PanelItem>
 </template>

@@ -50,9 +50,9 @@ class Tooltip extends Field
         return $this->withMeta(['placement' => $placement]);
     }
 
-    public function tippyOptions($tippyOptions)
+    public function allowTooltipHTML($allowHtml = true)
     {
-        return $this->withMeta(['tippyOptions' => $tippyOptions]);
+        return $this->withMeta(['allowHtml' => $allowHtml]);
     }
 
     public function resolve($resource, $attribute = null)

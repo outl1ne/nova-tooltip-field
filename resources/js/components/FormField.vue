@@ -1,6 +1,8 @@
 <template>
   <DefaultField :field="field" :errors="errors" :show-help-text="showHelpText">
-    <template #field> </template>
+    <template #field>
+      <Excerpt :content="field.content" :plain-text="true" :should-show="field.shouldShow" class="o1-tooltip-detail" />
+    </template>
   </DefaultField>
 </template>
 
