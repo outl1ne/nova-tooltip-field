@@ -24,7 +24,9 @@ composer require outl1ne/nova-tooltip-field
 use Outl1ne\NovaTooltipField\Tooltip;
 
 public function fields(Request $request) {
-    Tooltip::make('Content', 'content'),
+    Tooltip::make('Content', 'someValue')
+      ->text('Text displayed as field value')
+      ->content('Content displayed in tooltip'),
 }
 ```
 
