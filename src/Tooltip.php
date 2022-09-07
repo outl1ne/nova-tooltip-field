@@ -9,7 +9,6 @@ class Tooltip extends Field
 {
     use Expandable;
 
-    public $shouldShow = false;
     public $component = 'o1-tooltip-field';
 
     public function __construct($name, $attribute = null, callable $resolveCallback = null)
@@ -59,5 +58,12 @@ class Tooltip extends Field
     {
         parent::resolve($resource, $attribute);
         return $this->withMeta(['id' => "{$resource->id}-{$attribute}"]);
+    }
+
+    public function jsonSerialize(): array
+    {
+        return array_merge(parent::jsonSerialize(), [
+            'shouldShow' => $this->shouldBeExpanded(),
+        ]);
     }
 }
