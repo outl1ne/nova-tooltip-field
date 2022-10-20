@@ -13,15 +13,28 @@
     <img v-if="field.iconUrl" :width="field.size || 25" :src="field.iconUrl" />
     <span class="o1-inline-flex o1-text-70" :class="field.textAlign" v-if="field.iconPath" v-html="field.iconPath" />
     <div class="o1-ml-2" v-if="field.text && field.iconPosition === 'left'">{{ field.text }}</div>
+    <CopyButton
+      v-if="field.content && field.copyable"
+      class="o1-ml-auto"
+      @click.prevent.stop="copy"
+      v-tooltip="__('Copy to clipboard')"
+    />
   </Tippy>
 </template>
 
 <script>
 import { Tippy } from 'vue-tippy';
+import { CopiesToClipboard } from 'laravel-nova';
 import 'tippy.js/dist/tippy.css';
 
 export default {
+  mixins: [CopiesToClipboard],
   props: ['field'],
   components: { Tippy },
+  methods: {
+    copy() {
+      this.copyValueToClipboard(this.field.content);
+    },
+  },
 };
 </script>

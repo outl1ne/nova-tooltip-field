@@ -2,10 +2,10 @@
 
 namespace Outl1ne\NovaTooltipField;
 
+use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Expandable;
-use Laravel\Nova\Fields\Field;
 
-class Tooltip extends Field
+class Tooltip extends Text
 {
     use Expandable;
 
